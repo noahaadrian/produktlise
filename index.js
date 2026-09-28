@@ -7,9 +7,12 @@ fetch(endpoint)
 
 function visData(json) {
   console.log(json);
-  json.forEach((element) => {
+  json.forEach((element, i) => {
     catListeContainer.innerHTML += `
-      <a href="productslist.html?cat=${encodeURI(element.category)}">${element.category}</a>
-    `;
+      <a href="productslist.html?cat=${encodeURIComponent(element.category)}" style="--i:${i}">
+        <span class="cat-nr">${String(i + 1).padStart(2, "0")}</span>
+        <span class="cat-navn">${element.category}</span>
+        <span class="cat-pil">→</span>
+      </a>`;
   });
 }
