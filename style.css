@@ -31,11 +31,13 @@ h1 {
   font-size: clamp(2.5rem, 6vw, 4rem);
   line-height: 0.95;
   margin: 2rem 2rem 0;
+  justify-self: center;
 }
 
 h2 {
   font-size: 1.25rem;
   margin: 1.5rem 2rem 0.5rem;
+  justify-self: center;
 }
 
 body {
@@ -101,5 +103,18 @@ article {
 
   &:hover {
     border-color: #000000;
+  }
+}
+
+#catListeContainer {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+
+  a {
+    padding: 2rem;
+    background-color: #ff7a29;
+    text-decoration: none;
+    color: inherit;
   }
 }
