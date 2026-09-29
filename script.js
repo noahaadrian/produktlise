@@ -4,6 +4,28 @@ console.log(cat);
 const endpoint = `https://kea-alt-del.dk/t7/api/products?category=${cat}`;
 const produktliste = document.querySelector(".produktliste");
 
+document.querySelectorAll("#filtre button").forEach((knap) => knap.addEventListener("click", filtrer));
+
+function filtrer(e) {
+  console.log(e.target.textContent);
+  console.log(alleData, udsnit);
+  const valgt = e.target.textContent;
+  if (valgt == "Alle") {
+    udsnit = alleData;
+  } else {
+    udsnit = alleData.filter((produkt) => produkt.gender == valgt);
+  }
+}
+
+let alleData, udsnit;
+
+fetch(endpoint)
+  .then((res) => res.json())
+  .then((data) => {
+    alleData = udsnit = data;
+    visData(data);
+  });
+
 const h2 = document.querySelector("h2");
 h2.textContent = cat;
 
